@@ -2,7 +2,7 @@
 
 Product Manager case study by Belal Bahr.
 
-- `Belal Bahr_Career 180 Completion Trust Case Study.html`: the full case study (brief, PRD, diagrams, metrics, validation note)
+- `index.html`: the full case study (brief, PRD, diagrams, metrics, validation note)
 - `prototype.html`: working prototype, a single file that opens by double-click
 - `sample-data.csv`: the 25 sample certificates used by the prototype
 - `brief.md`: the original case brief
