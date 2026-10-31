@@ -1,0 +1,26 @@
+cert_id,learner,course_id,course_title,assessment_type,source,issued_date,issued_version,current_version,material_revision,course_status,standard,evidence_available,score,attempts_72h,time_ok,id_check,record_state,state_reason,expected_outcome,case,id_format
+CT-4F9K-2M71,Sara A.,C1,Intro to Digital Marketing,none,self,2026-08-12,1,1,n/a,active,V1,yes,,,n/a,n/a,active,,L0,1,new
+CT-8H2D-5Q30,Omar K.,C1,Intro to Digital Marketing,none,corporate,2026-08-20,1,1,n/a,active,V1,yes,,,n/a,n/a,active,,L0,1,new
+CT-3N7P-9X14,Lina M.,C6,Customer Service Basics,none,corporate,2026-07-22,1,1,n/a,retired,V1,yes,,,n/a,n/a,active,,"L0, course retired",7,new
+CT-6B1V-4R88,Youssef T.,C2,Excel for Business,quiz,self,2026-08-03,3,3,no,active,V1,yes,85,1,yes,n/a,active,,L1,,new
+CT-2K8W-7L56,Hana R.,C2,Excel for Business,quiz,corporate,2026-08-15,3,3,no,active,V1,yes,92,2,yes,n/a,active,,L1,,new
+CT-9D4S-1C27,Karim S.,C2,Excel for Business,quiz,self,2026-09-02,3,3,no,active,V1,yes,70,5,yes,n/a,active,,L0 + flag,3,new
+CT-5M3J-8F92,Nour H.,C3,Python Fundamentals,quiz,corporate,2026-09-09,2,2,no,active,V1,yes,75,1,no,n/a,active,,L0 + flag,4,new
+CT-7T6Y-2B45,Adam F.,C3,Python Fundamentals,quiz,corporate,2026-09-09,2,2,no,active,V1,yes,75,1,no,n/a,active,,L0 + flag,4,new
+CT-1Z9G-6H03,Mariam E.,C3,Python Fundamentals,quiz,corporate,2026-09-11,2,2,no,active,V1,yes,80,1,yes,n/a,active,,L1,,new
+CT-4Q2X-3N69,Tarek B.,C4,Project Management Essentials,proctored,self,2026-08-28,1,1,no,active,V1,yes,78,1,yes,yes,active,,L2,,new
+CT-8V5C-0K71,Dina G.,C4,Project Management Essentials,proctored,corporate,2026-09-14,1,1,no,active,V1,yes,84,1,yes,yes,active,,L2,,new
+CT-6R7L-4D18,Ali W.,C5,Data Analysis Capstone,project,self,2026-09-18,2,2,no,active,V1,yes,Pass,1,n/a,yes,active,,L2,,new
+CT-2H0B-9S35,Reem Q.,C5,Data Analysis Capstone,project,self,2026-09-21,2,2,no,active,V1,yes,Pass,1,n/a,no,active,,"L1 (capped, no ID record)",5,new
+CT-9P4M-7W62,Hossam N.,C4,Project Management Essentials,proctored,corporate,2025-11-05,1,1,no,active,Legacy,yes,81,1,yes,no,active,,"L1 Legacy (capped, no ID record)",5,old
+CT-3E8A-1T40,Salma D.,C7,Leadership 101,quiz,self,2026-07-18,2,4,yes,active,V1,yes,88,1,yes,n/a,active,,"L1, outdated",2,new
+CT-7U1F-5J84,Mostafa L.,C7,Leadership 101,quiz,corporate,2026-07-25,2,4,yes,active,V1,yes,75,2,yes,n/a,active,,"L1, outdated",2,new
+CT-5C6N-2Y19,Farah O.,C7,Leadership 101,quiz,self,2026-10-05,4,4,yes,active,V1,yes,90,1,yes,n/a,active,,"L1, current",2,new
+CT-1W3R-8M57,Ibrahim Z.,C7,Leadership 101,quiz,corporate,2025-09-14,2,4,yes,active,Legacy,no,,,n/a,n/a,active,,"L0 Legacy, outdated","2, 6",old
+CT-8J2K-6P93,Yasmin A.,C8,Sales Fundamentals,quiz,self,2026-08-09,1,2,no,active,V1,yes,82,1,yes,n/a,active,,"L1, current",2,new
+CT-4S9H-3V26,Walid C.,C2,Excel for Business,quiz,self,2025-06-30,1,3,no,active,Legacy,no,,,n/a,n/a,active,,L0 Legacy,6,old
+CT-6G5D-0Q78,Laila I.,C3,Python Fundamentals,quiz,corporate,2025-12-12,1,2,no,active,Legacy,yes,79,1,yes,n/a,active,,L1 Legacy,,old
+CT-2X7T-9B31,Fady M.,C1,Intro to Digital Marketing,none,corporate,2025-10-02,1,1,n/a,active,Legacy,yes,,,n/a,n/a,active,,L0 Legacy,1,old
+CT-5Y2P-8W07,Rana S.,C3,Python Fundamentals,quiz,corporate,2025-08-19,1,2,no,active,Legacy,partial,83,,,n/a,active,,L0 Legacy (timing and attempt records unavailable),6,old
+CT-9L4V-5E60,Nada P.,C3,Python Fundamentals,quiz,self,2026-09-30,2,2,no,active,V1,yes,85,1,yes,n/a,under_review,Partner reported a possible identity mismatch,"Under Review, level hidden",,new
+CT-3A8Z-7K15,Samir J.,C2,Excel for Business,quiz,self,2026-08-26,3,3,no,active,V1,yes,90,1,yes,n/a,revoked,Fraud confirmed: assessment taken by another person,Revoked,,new

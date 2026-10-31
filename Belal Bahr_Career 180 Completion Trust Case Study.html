@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belal Bahr: Career 180 Case Study, The Completion Trust Problem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #111827;
+      --accent-light: #f3f4f6;
+      --max-w: 760px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrapper { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    /* Cover */
+    .cover { padding: 80px 0 60px; border-bottom: 1px solid var(--border); margin-bottom: 64px; }
+    .cover-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+    .cover h1 { font-size: 28px; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .cover-meta { font-size: 13px; color: var(--muted); display: flex; gap: 24px; flex-wrap: wrap; }
+    .cover-meta span + span::before { content: '\B7'; margin-right: 24px; color: var(--border); }
+
+    /* TOC */
+    .toc { background: var(--accent-light); border-radius: 6px; padding: 20px 24px; margin-bottom: 48px; }
+    .toc-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .toc-list { list-style: none; padding-left: 0; margin-bottom: 0; }
+    .toc-list li { margin-bottom: 0; }
+    .toc-list a { text-decoration: none; color: var(--text); font-size: 13.5px; display: flex; gap: 10px; align-items: baseline; padding: 2px 0; }
+    .toc-list a:hover { color: var(--muted); }
+    .toc-list span { font-size: 11px; font-weight: 600; color: var(--muted); min-width: 30px; }
+    .toc-part a { font-weight: 600; margin-top: 8px; }
+    .toc-sub a { padding-left: 14px; }
+
+    /* Section */
+    .section { margin-bottom: 72px; padding-top: 8px; }
+    .section-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .section-num { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); min-width: 26px; }
+    .section h2 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+
+    /* Typography */
+    p { margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    h3 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 28px 0 10px; }
+    h3:first-child { margin-top: 0; }
+    ul, ol { padding-left: 20px; margin-bottom: 14px; }
+    ul { list-style: disc; }
+    ol { list-style: decimal; }
+    li { margin-bottom: 6px; }
+    li:last-child { margin-bottom: 0; }
+    strong { font-weight: 600; }
+
+    /* Tables */
+    .table-wrap { overflow-x: auto; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    th { text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 8px 12px; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--accent-light); }
+
+    /* Callout */
+    .callout { border-left: 3px solid var(--accent); padding: 12px 16px; background: var(--accent-light); border-radius: 0 4px 4px 0; margin: 20px 0; font-size: 14px; }
+
+    /* Stat cards */
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+    .stat-card { border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; }
+    .stat-card.negative { border-color: #fca5a5; background: #fef2f2; }
+    .stat-card.warning { border-color: #fcd34d; background: #fffbeb; }
+    .stat-card.positive { border-color: #86efac; background: #f0fdf4; }
+    .stat-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+    .stat-value { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; margin: 4px 0; }
+    .stat-note { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+    /* Tags */
+    .tag { display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; white-space: nowrap; }
+    .tag.p0 { background: #dcfce7; color: #166534; }
+    .tag.p1 { background: #dbeafe; color: #1e40af; }
+    .tag.p2 { background: #fef3c7; color: #92400e; }
+    .tag.out { background: #f3f4f6; color: #4b5563; }
+    .tag.brief { background: #dcfce7; color: #166534; }
+    .tag.assume { background: #fef3c7; color: #92400e; }
+
+    .pending-note { font-size: 13px; color: var(--muted); font-style: italic; }
+
+
+    /* Parts and subsections */
+    .part { margin: 72px 0 28px; }
+    .part .section-header { margin-bottom: 12px; border-bottom: 2px solid var(--accent); }
+    .part h2 { font-size: 22px; }
+    .part .section-num { min-width: 52px; }
+    .part-blurb { color: var(--muted); font-size: 14px; }
+    .subsection { margin-bottom: 52px; padding-top: 4px; }
+    .sub-title { font-size: 16px; font-weight: 600; text-transform: none; letter-spacing: -0.01em; color: var(--text); margin: 0 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .sub-num { color: var(--muted); font-size: 13px; margin-right: 10px; }
+    .subsection h4 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 24px 0 8px; }
+    .subsection h4:first-child { margin-top: 0; }
+    /* Diagrams */
+    .diagram { border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin: 16px 0 8px; background: #fff; }
+    .diagram svg { width: 100%; height: auto; display: block; }
+    .sv-box { stroke: #111827; stroke-width: 1.2; }
+    .sv-white { fill: #fff; } .sv-l0 { fill: #e5e7eb; } .sv-l1 { fill: #dbeafe; } .sv-l2 { fill: #dcfce7; }
+    .sv-l2s { fill: #dcfce7; } .sv-warn { fill: #fef3c7; } .sv-bad { fill: #fee2e2; } .sv-start { fill: #f3f4f6; }
+    .sv-lane { fill: #f9fafb; stroke: #e5e7eb; } .sv-glob { fill: #f3f4f6; stroke: #e5e7eb; }
+    .sv-line { stroke: #111827; stroke-width: 1.4; fill: none; }
+    .sv-t { font: 12px 'Inter', sans-serif; fill: #111827; }
+    .sv-b { font: 600 12px 'Inter', sans-serif; fill: #111827; }
+    .sv-s { font: 11px 'Inter', sans-serif; fill: #6b7280; }
+    .sv-h { font: 600 11px 'Inter', sans-serif; fill: #6b7280; letter-spacing: .1em; }
+    .sv-badge { fill: #111827; } .sv-bt { font: 600 11px 'Inter', sans-serif; fill: #fff; }
+    .figcap { font-size: 12.5px; color: var(--muted); margin-bottom: 14px; }
+    .fill-in { background: #fef3c7; padding: 0 4px; border-radius: 3px; }
+    a { color: var(--text); }
+    td ul, td ol { margin-bottom: 0; padding-left: 16px; }
+
+
+    /* Print: compact so deliverables fit the page limits */
+    @page { size: A4; margin: 12mm; }
+    @media print {
+      body { font-size: 10px; line-height: 1.4; }
+      .wrapper { max-width: none; padding: 0; }
+      .cover { padding: 0 0 12px; margin-bottom: 14px; }
+      .cover h1 { font-size: 20px; }
+      .toc { display: none; }
+      .part { margin: 18px 0 10px; }
+      .subsection { margin-bottom: 14px; }
+      .sub-title { font-size: 13px; margin-bottom: 8px; padding-bottom: 5px; }
+      table { font-size: 9px; }
+      th { padding: 4px 6px; font-size: 8px; }
+      td { padding: 4px 6px; }
+      p { margin-bottom: 6px; }
+      li { margin-bottom: 2px; }
+      ul, ol { margin-bottom: 6px; }
+      .subsection h4 { margin: 10px 0 4px; font-size: 9px; }
+      .callout { padding: 6px 10px; margin: 8px 0; font-size: 10px; }
+      .stat-grid { gap: 6px; margin: 8px 0; }
+      .stat-card { padding: 6px 8px; }
+      .stat-value { font-size: 15px; margin: 0; }
+      .stat-note { font-size: 9px; line-height: 1.35; }
+      .table-wrap { margin: 8px 0; }
+      .diagram { padding: 4px; margin: 6px 0; }
+      .diagram svg { max-height: 235mm; }
+      tr { break-inside: avoid; }
+      .part { break-before: page; }
+      .part { break-after: avoid; }
+      .diagram { break-inside: avoid; }
+    }
+
+    @media (max-width: 640px) { .stat-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="cover">
+    <div class="cover-label">Career 180 &middot; Product Manager Case Study</div>
+    <h1>The Completion Trust Problem: making a certificate mean something without breaking the business</h1>
+    <div class="cover-meta">
+      <span><strong>Belal Bahr</strong></span>
+      <span>Updated 31 Oct 2026</span>
+    </div>
+  </div>
+
+    <div class="toc">
+    <div class="toc-label">Contents</div>
+    <ul class="toc-list">
+      <li class="toc-part"><a href="#summary"><span></span>Summary</a></li>
+      <li class="toc-part"><a href="#part1"><span>1</span>Problem &amp; Solution Brief</a></li>
+      <li class="toc-sub"><a href="#framing"><span>1.1</span>Problem framing and labelling convention</a></li>
+      <li class="toc-sub"><a href="#trust-model"><span>1.2</span>Trust model</a></li>
+      <li class="toc-sub"><a href="#legacy"><span>1.3</span>Certificates already issued</a></li>
+      <li class="toc-sub"><a href="#decision"><span>1.4</span>Stakeholder decision and who bears the cost</a></li>
+      <li class="toc-sub"><a href="#lifecycle"><span>1.5</span>Certificate lifecycle</a></li>
+      <li class="toc-sub"><a href="#mvp"><span>1.6</span>MVP scope for one quarter</a></li>
+      <li class="toc-sub"><a href="#metrics"><span>1.7</span>Metrics</a></li>
+      <li class="toc-sub"><a href="#edge-cases"><span>1.8</span>Edge case and policy register</a></li>
+      <li class="toc-sub"><a href="#diagrams"><span>1.9</span>Diagrams</a></li>
+      <li class="toc-sub"><a href="#unasked"><span>1.10</span>Unasked question</a></li>
+      <li class="toc-part"><a href="#part2"><span>2</span>MVP PRD</a></li>
+      <li class="toc-sub"><a href="#prd-objective"><span>2.1</span>Objective, scope and roles</a></li>
+      <li class="toc-sub"><a href="#prd-states"><span>2.2</span>Certificate states and transition rules</a></li>
+      <li class="toc-sub"><a href="#prd-rules"><span>2.3</span>Level computation rules</a></li>
+      <li class="toc-sub"><a href="#prd-data"><span>2.4</span>Required data changes</a></li>
+      <li class="toc-sub"><a href="#prd-migration"><span>2.5</span>Migration of existing certificates</a></li>
+      <li class="toc-sub"><a href="#prd-features"><span>2.6</span>Features: user stories and acceptance criteria</a></li>
+      <li class="toc-sub"><a href="#prd-nfr"><span>2.7</span>Non-functional requirements and open questions</a></li>
+      <li class="toc-part"><a href="#part3"><span>3</span>Working Prototype and Sample Data</a></li>
+      <li class="toc-sub"><a href="#proto-files"><span>3.1</span>Files</a></li>
+      <li class="toc-sub"><a href="#proto-coverage"><span>3.2</span>Coverage of the brief's requirements</a></li>
+      <li class="toc-sub"><a href="#proto-demo"><span>3.3</span>Walkthrough order</a></li>
+      <li class="toc-part"><a href="#part4"><span>4</span>Validation &amp; Iteration Note</a></li>
+      <li class="toc-sub"><a href="#val-assumptions"><span>4.1</span>Three riskiest assumptions and how to test them</a></li>
+      <li class="toc-sub"><a href="#val-people"><span>4.2</span>Who we would talk to</a></li>
+      <li class="toc-sub"><a href="#val-changes"><span>4.3</span>What results would change the design</a></li>
+      <li class="toc-sub"><a href="#bonus"><span>4.4</span>Senior bonus: the underperforming promotions</a></li>
+      <li class="toc-part"><a href="#part5"><span>5</span>Process</a></li>
+      <li class="toc-sub"><a href="#ai-note"><span>5.1</span>AI usage note</a></li>
+      <li class="toc-sub"><a href="#log"><span>5.2</span>Working log</a></li>
+    </ul>
+  </div>
+
+  <div class="subsection" id="summary">
+    <h3 class="sub-title">Summary</h3>
+    <ul>
+      <li><strong>Problem:</strong> a certificate shows completion, not evidence, so a partner cannot tell what it means.</li>
+      <li><strong>Decision:</strong> keep completion rules as they are, and show an evidence level on a public certificate check page: L0 Participation, L1 Assessed, L2 Verified.</li>
+      <li><strong>Old certificates:</strong> keep them, label them Legacy, set the level from records we already hold, and tell learners before launch.</li>
+      <li><strong>Who pays:</strong> Growth keeps "certified learners" and adds "assessed learners" beside it. Content loses nothing on completion. The platform funds a small payout kicker and part-time trust ops. Partners accept that about 55% of certificates read "not assessed".</li>
+      <li><strong>MVP:</strong> 8 items, 2 backend and 1 frontend engineer, 13 weeks. The learner upgrade flow is a stretch item.</li>
+      <li><strong>Biggest risks:</strong> quiz data quality, Legal lead time, and quizzes getting easier once L1 matters.</li>
+    </ul>
+  </div>
+
+  <div class="subsection" id="map">
+    <h3 class="sub-title">How this document maps to the brief</h3>
+    <p>The brief asks for a Problem &amp; Solution Brief, the prototype with sample data, and a Validation &amp; Iteration Note. Those are Parts 1, 3 and 4. Deliverable numbers (D1 to D10) are mapped below. A demo video was not required.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Deliverable</th><th>Where</th></tr></thead>
+        <tbody>
+          <tr><td>D1 Decision memo</td><td>1.1 to 1.6</td></tr>
+          <tr><td>D2 MVP PRD</td><td>Part 2</td></tr>
+          <tr><td>D3 Discovery and validation plan</td><td>4.1 to 4.3</td></tr>
+          <tr><td>D4 Working prototype and sample data</td><td>Part 3</td></tr>
+          <tr><td>D5 Three diagrams</td><td>1.9</td></tr>
+          <tr><td>D6 Metrics table</td><td>1.7</td></tr>
+          <tr><td>D7 Edge case and policy register</td><td>1.8</td></tr>
+          <tr><td>D8 AI usage note</td><td>5.1</td></tr>
+          <tr><td>D9 Unasked question</td><td>1.10</td></tr>
+          <tr><td>D10 Working log</td><td>5.2</td></tr>
+          <tr><td>Senior bonus</td><td>4.4</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="part" id="part1">
+    <div class="section-header"><span class="section-num">PART 1</span><h2>Problem &amp; Solution Brief</h2></div>
+    <p class="part-blurb">The decision memo: what a certificate should mean, what we do about old certificates, who pays, and what ships in one quarter.</p>
+  </div>
+  <div class="subsection" id="framing">
+    <h3 class="sub-title"><span class="sub-num">1.1</span>Problem framing and labelling convention</h3>
+    <p>Completion is cheap to fake (skip ahead, leave a tab open, click through a quiz), and partners have started asking what a certificate actually proves. The root problem is not that certificates are too easy to earn. It is that <strong>the certificate carries no evidence a partner can inspect</strong>, so every certificate looks equally trustworthy or equally worthless.</p>
+    <p>Every key claim in this document is labelled: <span class="tag brief">Brief</span> backed by the case brief, <span class="tag assume">Assumption</span> my assumption, with a way to check it.</p>
+    <h4>Terms used in this document</h4>
+    <ul>
+      <li><strong>Certified learner:</strong> a learner who completed a course and received a certificate. It means they are learning. This meaning does not change.</li>
+      <li><strong>Assessed learner:</strong> a certified learner whose certificate has assessment evidence (level L1 or L2). It is a separate, additional claim about skills.</li>
+      <li><strong>Certificate check:</strong> the public page where a partner enters an ID and sees the evidence. The word "Verified" is reserved for the L2 level only.</li>
+    </ul>
+    <div class="callout">
+      <strong>Position in one sentence</strong><br/>
+      A certificate should state what evidence stands behind it. "Certified" keeps meaning "completed and learning"; whether the learner gained the skill is a separate claim that we show as an assessment level. Completion rate is untouched, so instructors and Growth are not forced to fight the change.
+    </div>
+  </div>
+  <div class="subsection" id="trust-model">
+    <h3 class="sub-title"><span class="sub-num">1.2</span>Trust model</h3>
+    <p>Three evidence levels. The partner sees a level and the evidence behind it, not a pass/fail flag.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Level</th><th>Evidence required</th><th>What the partner is told</th><th>Good for</th></tr></thead>
+        <tbody>
+          <tr><td><strong>L0 Participation</strong></td><td>Course completed, no assessment</td><td>"Completed the course. Competence was not assessed."</td><td>Showing the learner took part</td></tr>
+          <tr><td><strong>L1 Assessed</strong></td><td>Auto-graded quiz passed, with integrity checks: minimum time spent, at most 3 attempts per 72 hours</td><td>"Passed an assessment. Identity not verified."</td><td>A screening signal</td></tr>
+          <tr><td><strong>L2 Verified</strong></td><td>Proctored or project-based exam passed, with identity check</td><td>"Passed a proctored or reviewed assessment, with identity confirmed."</td><td>The strongest evidence we offer</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Rules</h4>
+    <ul>
+      <li><strong>Evidence only moves a level up.</strong> A level moves down only through a review outcome. Engagement signals (watch-time plausibility, single-session bursts) can attach a flag to a record. They never raise the level.</li>
+      <li><strong>Courses with no assessment cap at L0.</strong> We say so honestly and do not invent a signal. Course owners can opt up by adding a quiz. <span class="tag assume">Assumption</span> that most of the catalog stays at L0 for now.</li>
+      <li><strong>Corporate learners use the same bar.</strong> The record shows the enrollment source (bulk or self-directed) as context, with no penalty. An assessment pass is what separates real effort from a clicked-through course, so it works equally for both. <span class="tag brief">Brief</span> that about a third of learners are corporate and harder to read.</li>
+      <li><strong>A certificate is pinned to the course version it was issued against.</strong> If the course was later revised, the record shows both versions and whether the change was material.</li>
+      <li><strong>No expiry in the MVP.</strong> The brief notes there is no expiry today <span class="tag brief">Brief</span>. Adding one is a post-MVP decision.</li>
+    </ul>
+    <div class="callout">
+      <strong>Legal</strong><br/>
+      Every level is defined by documented, checkable criteria, published on a methodology page. The word "Verified" is used only for L2, which is why the public page is called a certificate check. <span class="tag brief">Brief</span> that Legal requires a defensible methodology behind any "verified" claim.
+    </div>
+  </div>
+  <div class="subsection" id="legacy">
+    <h3 class="sub-title"><span class="sub-num">1.3</span>Certificates already issued</h3>
+    <p><strong>Decision: keep them valid, label them Legacy, and backfill a level from evidence we already hold. Never revoke, never upgrade beyond what the evidence supports.</strong></p>
+    <ul>
+      <li>Every certificate issued before the cutover date gets <em>Standard = Legacy</em>. The cutover date is a configuration value set at launch.</li>
+      <li>A level is computed from existing quiz and exam records using the same rules. No data means L0 Legacy. <strong>Partial data</strong> (a quiz pass is recorded but timing or attempt records are missing) also stays L0, because the integrity checks for L1 cannot be applied.</li>
+      <li>The partner sees "Issued under the pre-cutover standard" next to the level, so an old certificate is never presented as equivalent to a new one.</li>
+      <li>Legacy certificates are subject to the same integrity rules. Some will show a lower level than the holder expects, so <strong>every affected learner is told before the page goes live and can contest the result</strong> (PRD item 6).</li>
+      <li>Revoking would break promises already made to learners and employers. Grandfathering silently would repeat the trust problem. Labelling is the position that is both honest and cheap.</li>
+    </ul>
+    <p><span class="tag assume">Assumption</span> historical quiz and exam records exist in a usable form for most assessed courses, including timestamps and attempt counts. Check: weeks 1 to 3, sample 50 assessed courses and measure how many quiz passes have complete timing and attempt records. A first backfill dry run follows in week 6, not at the end.</p>
+  </div>
+  <div class="subsection" id="decision">
+    <h3 class="sub-title"><span class="sub-num">1.4</span>Stakeholder decision and who bears the cost</h3>
+    <p>The three stakeholders want conflicting things. The decision is to <strong>change what we show, not what we require, and not to redefine "certified learners"</strong>. A certified learner is a learner who completed the course and is learning, and that is true. Whether they gained the skill is a different claim, so we add it next to the headline instead of replacing it. No course gets a new completion gate, so completion rate, the certified-learner count and instructor payouts are untouched. The price is paid in marketing language and in partner expectations.</p>
+
+    <h4>Working assumptions</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Assumption</th><th>Value</th><th>How to check</th></tr></thead>
+        <tbody>
+          <tr><td>Catalog by assessment depth</td><td>60% none, 35% auto-graded quiz, 5% proctored or project</td><td>Query catalog by assessment type</td></tr>
+          <tr><td>Certificate volume by level</td><td>About 55% L0, 40% L1, 5% L2</td><td>Count issued certificates by course type</td></tr>
+          <tr><td>Quizzes exist but are not required to complete in many courses</td><td>Needed for L1 to add information</td><td>Read completion rules on 50 quiz courses</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card warning">
+        <div class="stat-label">Growth</div>
+        <div class="stat-value">0% lost</div>
+        <div class="stat-note">"Certified learners" keeps its meaning and keeps climbing. A second number, "assessed learners (L1+)", about 45% of certificates, is added beside it. The cost is a copy rule: no "skilled" or "competent" claims without citing a level.</div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-label">Content</div>
+        <div class="stat-value">0 pts</div>
+        <div class="stat-note">Completion rate untouched by design (the guardrail still tolerates 2 points of behavior change). The cost is the opt-in payout kicker, borne by the platform, not by instructors.</div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-label">Partnerships</div>
+        <div class="stat-value">~55%</div>
+        <div class="stat-note">Of certificates honestly read "not assessed". They get a defensible methodology only on the L1+ slice.</div>
+      </div>
+    </div>
+
+    <h4>Cost to the platform</h4>
+    <p>The payout kicker is +7.5% on L1+ completions, which costs about <strong>3.4% of the instructor payout pool</strong> (45% assessed share &times; 7.5%, treating the share of certificates as the share of payouts). <span class="tag assume">Assumption</span> on the 45%, the 7.5% and the share-of-payout simplification. Finance owns the final number and the funding source; I would propose a partner price premium, tested in the partner interviews (4.1). The kicker is a pilot after launch, and needs a contract addendum agreed with Legal and Content.</p>
+    <p><strong>Trust ops</strong> is also a cost: about half a reviewer's time. <span class="tag assume">Assumption</span> about 20 concerns a week, checked in the pilot.</p>
+    <p><strong>What Growth has to accept:</strong> when pitching to employers, the "assessed learners" number sits next to the certified-learner number and shows that a large share of certificates are participation records. That transparency is the real cost, and it is also what Partnerships needs. Marketing copy about skills must be approved by Legal.</p>
+    <p><span class="tag brief">Brief</span> that instructor payout and rankings are tied to completion rate, and that Growth uses "certified learners" as a headline metric. Those two facts are why the decision avoids new gates and keeps the headline definition.</p>
+  </div>
+  <div class="subsection" id="lifecycle">
+    <h3 class="sub-title"><span class="sub-num">1.5</span>Certificate lifecycle</h3>
+    <p>State is kept separate from level and standard. Merging them would multiply the state machine (Legacy &times; Outdated &times; Under Review and so on) for no benefit to engineering.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Field</th><th>Values</th><th>Changes when</th></tr></thead>
+        <tbody>
+          <tr><td><strong>State</strong></td><td>Active, Under Review, Revoked</td><td>Events below</td></tr>
+          <tr><td><strong>Level</strong></td><td>L0, L1, L2</td><td>New evidence arrives (moves up). Moves down only through a review outcome</td></tr>
+          <tr><td><strong>Standard</strong></td><td>Legacy, V1</td><td>Never. Fixed at issue or backfill</td></tr>
+          <tr><td><strong>Version status</strong></td><td>Current, Outdated</td><td>Content ops marks a course revision as material</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Transitions</h4>
+    <ul>
+      <li>Course completion plus evidence evaluation &rarr; <strong>Active</strong>, with level computed.</li>
+      <li>A partner reports a concern. Ops triages it within 1 business day; if accepted, or if ops flags the certificate itself, &rarr; <strong>Under Review</strong>. The partner sees "Under review", the level is hidden, and the learner is told and can respond.</li>
+      <li>Review cleared &rarr; <strong>Active</strong>. Review confirms fraud, after the learner's response window &rarr; <strong>Revoked</strong> (terminal), with the reason recorded.</li>
+      <li>Integrity failures at evaluation (too fast, too many attempts) do not change state. They produce L0 with a flag.</li>
+      <li>Material course revision flips version status to <strong>Outdated</strong>. State stays Active. The partner sees "Issued against v2, current is v4".</li>
+    </ul>
+    <p>The lifecycle diagram is in section 1.9.</p>
+  </div>
+  <div class="subsection" id="mvp">
+    <h3 class="sub-title"><span class="sub-num">1.6</span>MVP scope for one quarter</h3>
+    <p>Team: 2 backend and 1 frontend engineer <span class="tag brief">Brief</span>. 13 weeks, from "one quarter" <span class="tag assume">Assumption</span>.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Item</th><th>Owner</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Evidence and level service.</strong> Rules engine over existing quiz and exam data computing L0, L1 or L2. Two quiz integrity rules (minimum time, at most 3 attempts per 72 hours) and the L2 identity-check requirement.</td><td>BE1</td><td><span class="tag p0">Must Have</span></td></tr>
+          <tr><td>2</td><td><strong>Course tagging and versioning.</strong> Assessment type and version number per course. "Material revision" flag set manually by content ops at publish, no auto-diff.</td><td>BE2</td><td><span class="tag p0">Must Have</span></td></tr>
+          <tr><td>3</td><td><strong>Legacy backfill.</strong> Migration script computes a level from historical data and labels every old certificate Legacy.</td><td>BE2</td><td><span class="tag p0">Must Have</span></td></tr>
+          <tr><td>4</td><td><strong>Public certificate check page.</strong> Enter an ID, see level, evidence summary, learner source, version status, methodology link, and a one-click "Was this enough to make a decision?".</td><td>FE</td><td><span class="tag p0">Must Have</span></td></tr>
+          <tr><td>5</td><td><strong>Concern and review flow.</strong> Partner reports a concern (confirmed email, rate limited), ops triages, accepted concerns move the certificate to Under Review. Minimal admin screen.</td><td>BE1 + FE</td><td><span class="tag p0">Must Have</span></td></tr>
+          <tr><td>6</td><td><strong>Learner notice and response.</strong> Email to affected learners before launch, a contest link, and a response window whenever a certificate goes Under Review.</td><td>BE2 + FE</td><td><span class="tag p0">Must Have</span></td></tr>
+          <tr><td>7</td><td><strong>Methodology page and privacy review.</strong> The document Legal signs off on, including the privacy notice for the public page.</td><td>PM + Legal</td><td><span class="tag p0">Must Have</span></td></tr>
+          <tr><td>8</td><td><strong>Learner upgrade flow.</strong> "Add an exam to reach L2". <strong>Stretch item, built last.</strong> Starts only if items 1 to 7 are accepted by the end of week 10. First thing cut if the quarter slips, because it depends on a stable level engine and review flow.</td><td>BE1 + FE</td><td><span class="tag p2">Could Have</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pending-note">Effort ratings are indicative and should be validated with engineering. If the quarter slips, cut in this order: item 8, then the ops admin screen (use the existing support tool), then the learner response form (reply by email).</p>
+
+    <h4>Out of scope</h4>
+    <ul>
+      <li>Building any proctoring. We only classify exams that already exist.</li>
+      <li>Partner API and bulk checks.</li>
+      <li>Certificate expiry.</li>
+      <li>ML anomaly detection and cohort-level fraud detection.</li>
+      <li>Instructor payout kicker (pilot after launch).</li>
+    </ul>
+
+    <h4>Next after the MVP</h4>
+    <ul>
+      <li>Grow the assessed share: add quizzes to the courses with the most corporate enrollment first, and offer partner-funded assessments.</li>
+      <li>Let a learner refresh an Outdated certificate to the current course version.</li>
+    </ul>
+
+    <h4>Sequencing</h4>
+    <ul>
+      <li><strong>Weeks 1 to 3:</strong> data model and course tagging (BE2); data-quality analysis and evidence extraction (BE1, answers assumption A2); design and mocked API (FE); methodology and privacy kickoff with Legal (PM). Legal starts here because sign-off is a long lead item.</li>
+      <li><strong>Weeks 4 to 8:</strong> level engine (BE1), certificate check page (FE), backfill tooling with a first dry run in week 6 (BE2). All three run in parallel.</li>
+      <li><strong>Weeks 8 to 10:</strong> concern and review flow, learner notice and response, methodology sign-off by end of week 10. Learner notices go out at the end of week 9, at least 14 days before the page is visible to partners. Real backfill in week 10.</li>
+      <li><strong>Weeks 11 to 13:</strong> pilot with 1 to 2 partners behind a feature flag. Item 8 starts only if items 1 to 7 were accepted by week 10. Week 13 is buffer.</li>
+      <li><strong>After the quarter:</strong> general availability is decided after reading the completion guardrail over a 6 week window with the pilot partners, because completion effects are slow to show.</li>
+    </ul>
+    <p>Rollout is phased (pilot, then general availability), so guardrail metrics can be read before the page is public.</p>
+  </div>
+  <div class="subsection" id="metrics">
+    <h3 class="sub-title"><span class="sub-num">1.7</span>Metrics</h3>
+    <div class="callout">
+      <strong>North star: L1+ checks answered "Yes, this was enough to make a decision", per month.</strong><br/>
+      It rises only when assessed supply and partner trust both grow. The answer is optional, so the count is a floor; we also track the response rate.
+    </div>
+
+    <h4>Guardrails</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Threshold</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Course completion rate</td><td>No more than 2 points below pre-launch baseline</td><td>Instructor payout and rankings depend on it</td></tr>
+          <tr><td>Certified learners (certificates issued)</td><td>No more than 5% below baseline</td><td>Growth headline, definition unchanged</td></tr>
+          <tr><td>Learner contest rate</td><td>Under 5% of notified learners</td><td>Early signal that the Legacy rollout is going badly</td></tr>
+          <tr><td>New quizzes added per month</td><td>Baseline set before kicker pilot</td><td>Shows whether instructors adopt assessments</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Is trust failing in practice?</h4>
+    <ul>
+      <li><strong>Upheld concern and revocation rate on L1+ certificates.</strong> It depends on partners reporting, so it is a lagging and incomplete signal.</li>
+      <li><strong>Partner outcome pulse:</strong> 90 days after a pilot partner reports hiring or promoting a certificate holder, one question: did they meet expectations? Compared across L0, L1 and L2. This is the only signal that tests whether levels predict real performance.</li>
+      <li><strong>Integrity hold rate:</strong> share of quiz passes held at L0 for integrity reasons, by course and by corporate vs self-directed learners. It calibrates the rules rather than measuring failure.</li>
+      <li><strong>L1 from quizzes flagged too easy:</strong> share of L1 certificates whose quiz has a pass rate above 95% with a median score above 90%.</li>
+    </ul>
+
+    <h4>Triggers to change the model</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Signal</th><th>Threshold</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr><td>Upheld concerns on L1+</td><td>Above 1% of L1+ certificates checked</td><td>Tighten L1 criteria (raise the minimum time percentage or lower the attempt limit) and audit the courses involved</td></tr>
+          <tr><td>Integrity hold rate</td><td>Above 10% of quiz passes in a course group, or below 1% where many bulk corporate passes exist</td><td>Above: check thresholds and quiz design before assuming misconduct. Below: the rules are not discriminating, so revisit the minimum time</td></tr>
+          <tr><td>Partner outcome pulse</td><td>L2 holders meeting expectations less than 10 points above L0 holders</td><td>Levels do not predict outcomes. Redesign what L2 requires</td></tr>
+          <tr><td>L1 from flagged-easy quizzes</td><td>Above 20% of L1</td><td>Restrict the payout kicker to audited quizzes and add a quiz-quality review</td></tr>
+          <tr><td>"Yes" answers</td><td>Below 70% of answers</td><td>Change what the page shows before touching the model</td></tr>
+          <tr><td>Learner contest rate</td><td>Above 5% of notified learners</td><td>Soften the Legacy wording and review the rules that lowered most results</td></tr>
+          <tr><td>Completion rate</td><td>More than 3 points below baseline</td><td>Pause kicker rollout, reassess incentive design</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><span class="tag assume">Assumption</span> All thresholds are starting points. Baselines (completion, issuance, concerns) must be measured before launch and the thresholds recalibrated against them.</p>
+  </div>
+  <div class="subsection" id="edge-cases">
+    <h3 class="sub-title"><span class="sub-num">1.8</span>Edge case and policy register</h3>
+    <p>Rows 1 and 2 are required by the brief. Rows 3 to 8 are my own.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Case</th><th>Scenario</th><th>Proposed handling</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Course with no assessment</strong></td><td>Learner completes a video-only course.</td><td>Level capped at <strong>L0</strong>. Partner reads "Completed. Competence was not assessed." The page never implies more than the evidence supports. The course owner can opt up by adding a quiz.</td></tr>
+          <tr><td>2</td><td><strong>Course revised after issue</strong></td><td>A course moves from v2 to v4 after certificates were issued.</td><td>Certificate stays pinned to v2. If content ops marks the revision <strong>material</strong>, version status becomes Outdated and the partner sees "Issued against v2, current is v4". A non-material revision stays Current. The level never changes retroactively.</td></tr>
+          <tr><td>3</td><td><strong>Quiz passed through repeated retakes</strong></td><td>Learner passes on the 5th attempt within an hour.</td><td>L1 requires at most 3 attempts per 72 hours. Otherwise the certificate is <strong>L0 with a flag</strong>: "Assessment passed but did not meet integrity criteria". A few honest learners are held at L0, and can retake after the 72 hour window. <span class="tag assume">Assumption</span> on 3 attempts and 72 hours, checked against attempt distributions in the quiz data.</td></tr>
+          <tr><td>4</td><td><strong>Bulk corporate cohort passing implausibly fast</strong></td><td>200 staff finish a quiz in one session, each under the minimum time.</td><td>Individual-level rules apply: under the minimum time means no L1, and the certificate is L0 with a flag. Enrollment source is shown as context with no penalty. <strong>Cohort-level anomaly detection is out of the MVP</strong>, so cohort fraud that passes the individual rules is only caught through a partner concern and manual review. This is a known gap, monitored by the integrity hold rate.</td></tr>
+          <tr><td>5</td><td><strong>Proctored exam with no identity-check record</strong></td><td>A legacy proctored exam exists but no ID check was stored.</td><td><strong>Capped at L1</strong>, never L2. "Verified" requires the identity record, which is also what Legal needs to defend the claim.</td></tr>
+          <tr><td>6</td><td><strong>Legacy certificate with missing or partial assessment data</strong></td><td>Old certificate for an assessed course, but quiz history was lost, or a pass exists without timing and attempt records.</td><td>Backfills as <strong>L0 Legacy</strong>, because the integrity checks cannot be applied. The learner is told before launch and can contest. The learner can request re-evaluation (manual, post-MVP). The level only moves up on evidence.</td></tr>
+          <tr><td>7</td><td><strong>Course retired after issuance</strong></td><td>A course is unpublished or deleted.</td><td>Certificate stays valid. The page shows "Course retired" and keeps the version and assessment evidence. Policy: course versions are never hard-deleted.</td></tr>
+          <tr><td>8</td><td><strong>ID guessing, privacy and malicious reports</strong></td><td>Someone enumerates certificate IDs, the public page exposes personal data, or someone files false concerns to hide a learner's level.</td><td>IDs are non-sequential and unguessable. Lookups are rate-limited. A missing ID gives the same generic response as any other failure. The page shows the learner's name and evidence summary only. Old-format IDs also need the learner's last initial and issue year, because they may be sequential. Concerns need a confirmed email and are rate limited; the level stays visible until ops accepts the concern at triage, and the learner can respond before any revocation.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="subsection" id="diagrams">
+    <h3 class="sub-title"><span class="sub-num">1.9</span>Diagrams</h3>
+    <h4>Trust model</h4>
+    <div class="diagram"><svg viewBox="0 0 720 600" role="img" aria-label="Trust model diagram" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111827"/></marker></defs><text x="20" y="22" class="sv-h">INPUTS</text><text x="285" y="22" class="sv-h">RULES</text><text x="555" y="22" class="sv-h">OUTCOME</text><rect x="8" y="34" width="704" height="100" rx="8" class="sv-lane"/><rect x="8" y="144" width="704" height="150" rx="8" class="sv-lane"/><rect x="8" y="304" width="704" height="130" rx="8" class="sv-lane"/><rect x="20" y="54" width="215" height="60" rx="6" class="sv-box sv-white" /><text x="127.5" y="73.0" text-anchor="middle" class="sv-b">Path A: no assessment</text><text x="127.5" y="88.0" text-anchor="middle" class="sv-t">Course completed</text><text x="127.5" y="103.0" text-anchor="middle" class="sv-t">No quiz or exam exists</text><rect x="275" y="54" width="240" height="60" rx="6" class="sv-box sv-white" /><text x="395.0" y="80.5" text-anchor="middle" class="sv-t">Nothing to level up from:</text><text x="395.0" y="95.5" text-anchor="middle" class="sv-t">completion alone is not evidence</text><rect x="555" y="64" width="145" height="40" rx="6" class="sv-box sv-l0" /><text x="627.5" y="88.0" text-anchor="middle" class="sv-b">L0 Participation</text><polyline points="235,84 275,84" class="sv-line" marker-end="url(#ar)"/><polyline points="515,84 555,84" class="sv-line" marker-end="url(#ar)"/><rect x="20" y="160" width="215" height="118" rx="6" class="sv-box sv-white" /><text x="127.5" y="193.0" text-anchor="middle" class="sv-b">Path B: auto-graded quiz</text><text x="127.5" y="208.0" text-anchor="middle" class="sv-t">Quiz passed, score</text><text x="127.5" y="223.0" text-anchor="middle" class="sv-t">Time spent vs minimum</text><text x="127.5" y="238.0" text-anchor="middle" class="sv-t">Attempts in 72 hours</text><text x="127.5" y="253.0" text-anchor="middle" class="sv-t">Assessment history available?</text><rect x="275" y="160" width="240" height="118" rx="6" class="sv-box sv-white" /><text x="395.0" y="193.0" text-anchor="middle" class="sv-b">Rules in order</text><text x="395.0" y="208.0" text-anchor="middle" class="sv-t">1. History missing: L0</text><text x="395.0" y="223.0" text-anchor="middle" class="sv-t">2. Time at least minimum AND</text><text x="395.0" y="238.0" text-anchor="middle" class="sv-t">at most 3 attempts / 72h: L1</text><text x="395.0" y="253.0" text-anchor="middle" class="sv-t">3. Otherwise: L0 + flag</text><rect x="555" y="170" width="145" height="40" rx="6" class="sv-box sv-l1" /><text x="627.5" y="194.0" text-anchor="middle" class="sv-b">L1 Assessed</text><rect x="555" y="226" width="145" height="40" rx="6" class="sv-box sv-l0" /><text x="627.5" y="250.0" text-anchor="middle" class="sv-b">L0 + integrity flag</text><polyline points="235,219 275,219" class="sv-line" marker-end="url(#ar)"/><polyline points="515,190 555,190" class="sv-line" marker-end="url(#ar)"/><text x="535" y="183" text-anchor="middle" class="sv-s">pass</text><polyline points="515,246 555,246" class="sv-line" marker-end="url(#ar)"/><text x="535" y="239" text-anchor="middle" class="sv-s">fail</text><rect x="20" y="320" width="215" height="98" rx="6" class="sv-box sv-white" /><text x="127.5" y="358.0" text-anchor="middle" class="sv-b">Path C: proctored or project</text><text x="127.5" y="373.0" text-anchor="middle" class="sv-t">Exam or project passed</text><text x="127.5" y="388.0" text-anchor="middle" class="sv-t">Identity check on record?</text><rect x="275" y="320" width="240" height="98" rx="6" class="sv-box sv-white" /><text x="395.0" y="350.5" text-anchor="middle" class="sv-b">Rules in order</text><text x="395.0" y="365.5" text-anchor="middle" class="sv-t">1. Identity check present: L2</text><text x="395.0" y="380.5" text-anchor="middle" class="sv-t">2. No identity record:</text><text x="395.0" y="395.5" text-anchor="middle" class="sv-t">capped at L1, never L2</text><rect x="555" y="326" width="145" height="40" rx="6" class="sv-box sv-l2" /><text x="627.5" y="350.0" text-anchor="middle" class="sv-b">L2 Verified</text><rect x="555" y="376" width="145" height="40" rx="6" class="sv-box sv-l1" /><text x="627.5" y="400.0" text-anchor="middle" class="sv-b">L1 (capped)</text><polyline points="235,369 275,369" class="sv-line" marker-end="url(#ar)"/><polyline points="515,346 555,346" class="sv-line" marker-end="url(#ar)"/><text x="535" y="339" text-anchor="middle" class="sv-s">yes</text><polyline points="515,396 555,396" class="sv-line" marker-end="url(#ar)"/><text x="535" y="389" text-anchor="middle" class="sv-s">no</text><rect x="8" y="448" width="704" height="142" rx="8" class="sv-glob"/><text x="20" y="470" class="sv-h">APPLIES TO EVERY PATH</text><rect x="20" y="482" width="163" height="52" rx="6" class="sv-box sv-white" /><text x="101.5" y="504.5" text-anchor="middle" class="sv-b">Flags</text><text x="101.5" y="519.5" text-anchor="middle" class="sv-t">Added, never raise a level</text><rect x="192" y="482" width="163" height="52" rx="6" class="sv-box sv-white" /><text x="273.5" y="504.5" text-anchor="middle" class="sv-b">Enrollment source</text><text x="273.5" y="519.5" text-anchor="middle" class="sv-t">Context only, no penalty</text><rect x="364" y="482" width="163" height="52" rx="6" class="sv-box sv-white" /><text x="445.5" y="504.5" text-anchor="middle" class="sv-b">Version status</text><text x="445.5" y="519.5" text-anchor="middle" class="sv-t">Current or Outdated</text><rect x="536" y="482" width="163" height="52" rx="6" class="sv-box sv-white" /><text x="617.5" y="504.5" text-anchor="middle" class="sv-b">Standard</text><text x="617.5" y="519.5" text-anchor="middle" class="sv-t">Legacy or V1, same rules</text><rect x="20" y="544" width="680" height="36" rx="6" class="sv-box sv-warn" /><text x="360.0" y="566.0" text-anchor="middle" class="sv-b">Override: Under Review and Revoked states hide the level and evidence from the partner</text></svg></div>
+    <p class="figcap">Inputs, rules and outcome for each assessment path. The bottom band lists what applies everywhere.</p>
+
+    <h4>Certificate lifecycle</h4>
+    <div class="diagram"><svg viewBox="0 0 720 540" role="img" aria-label="Certificate lifecycle diagram" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111827"/></marker></defs><circle cx="50" cy="200" r="10" fill="#111827"/><text x="50" y="228" text-anchor="middle" class="sv-s">Course</text><text x="50" y="241" text-anchor="middle" class="sv-s">completed</text><circle cx="50" cy="350" r="10" fill="#111827"/><text x="50" y="378" text-anchor="middle" class="sv-s">Legacy</text><text x="50" y="391" text-anchor="middle" class="sv-s">backfill</text><rect x="170" y="160" width="170" height="80" rx="6" class="sv-box sv-l2s" /><text x="255.0" y="189.0" text-anchor="middle" class="sv-b">ACTIVE</text><text x="255.0" y="204.0" text-anchor="middle" class="sv-t">level L0, L1 or L2</text><text x="255.0" y="219.0" text-anchor="middle" class="sv-t">shown to partner</text><rect x="470" y="160" width="170" height="80" rx="6" class="sv-box sv-warn" /><text x="555.0" y="189.0" text-anchor="middle" class="sv-b">UNDER REVIEW</text><text x="555.0" y="204.0" text-anchor="middle" class="sv-t">level and evidence</text><text x="555.0" y="219.0" text-anchor="middle" class="sv-t">hidden</text><rect x="470" y="330" width="170" height="80" rx="6" class="sv-box sv-bad" stroke-width="3"/><text x="555.0" y="359.0" text-anchor="middle" class="sv-b">REVOKED</text><text x="555.0" y="374.0" text-anchor="middle" class="sv-t">terminal</text><text x="555.0" y="389.0" text-anchor="middle" class="sv-t">reason shown</text><polyline points="61,200 170,200" class="sv-line" marker-end="url(#ar)"/><circle cx="115" cy="186" r="10" class="sv-badge"/><text x="115" y="190" text-anchor="middle" class="sv-bt">1</text><polyline points="61,350 150,350 190,240" class="sv-line" marker-end="url(#ar)"/><circle cx="105" cy="336" r="10" class="sv-badge"/><text x="105" y="340" text-anchor="middle" class="sv-bt">2</text><polyline points="340,178 470,178" class="sv-line" marker-end="url(#ar)"/><circle cx="405" cy="164" r="10" class="sv-badge"/><text x="405" y="168" text-anchor="middle" class="sv-bt">3</text><polyline points="470,222 340,222" class="sv-line" marker-end="url(#ar)"/><circle cx="405" cy="238" r="10" class="sv-badge"/><text x="405" y="242" text-anchor="middle" class="sv-bt">4</text><polyline points="555,240 555,330" class="sv-line" marker-end="url(#ar)"/><circle cx="573" cy="285" r="10" class="sv-badge"/><text x="573" y="289" text-anchor="middle" class="sv-bt">5</text><path d="M 215 160 C 215 100, 295 100, 295 160" class="sv-line" fill="none" marker-end="url(#ar)"/><circle cx="255" cy="104" r="10" class="sv-badge"/><text x="255" y="108" text-anchor="middle" class="sv-bt">6</text><path d="M 215 240 C 215 290, 295 290, 295 240" class="sv-line" fill="none" marker-end="url(#ar)"/><circle cx="255" cy="292" r="10" class="sv-badge"/><text x="255" y="296" text-anchor="middle" class="sv-bt">7</text><rect x="20" y="430" width="680" height="90" rx="6" class="sv-box sv-white" /><text x="360.0" y="456.5" text-anchor="middle" class="sv-b">Attributes that change without changing state</text><text x="360.0" y="471.5" text-anchor="middle" class="sv-t">Level: L0, L1, L2 (moves up on new evidence)   |   Version status: Current, Outdated (material revision)</text><text x="360.0" y="486.5" text-anchor="middle" class="sv-t">Standard: Legacy, V1 (fixed at issue or backfill, never changes)</text><text x="360.0" y="501.5" text-anchor="middle" class="sv-t">Revoked certificates are never reinstated: a new certificate must be issued</text></svg></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Event</th><th>Moves</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Course completed and evidence evaluated</td><td>Start &rarr; Active, level set</td></tr>
+          <tr><td>2</td><td>Legacy backfill job runs</td><td>Existing certificate &rarr; Active, standard Legacy, level set</td></tr>
+          <tr><td>3</td><td>Ops accepts a concern at triage, or ops flags the certificate</td><td>Active &rarr; Under Review (learner notified)</td></tr>
+          <tr><td>4</td><td>Ops clears the review (reason required)</td><td>Under Review &rarr; Active</td></tr>
+          <tr><td>5</td><td>Lead confirms fraud after the learner's response window (reason required)</td><td>Under Review &rarr; Revoked</td></tr>
+          <tr><td>6</td><td>New assessment evidence arrives</td><td>Stays Active, level can move up</td></tr>
+          <tr><td>7</td><td>Content ops marks a course revision as material</td><td>Stays Active, version status becomes Outdated</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Partner verification flow</h4>
+    <div class="diagram"><svg viewBox="0 0 720 720" role="img" aria-label="Partner verification flow diagram" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111827"/></marker></defs><rect x="250" y="10" width="220" height="44" rx="22" class="sv-box sv-start" /><text x="360.0" y="28.5" text-anchor="middle" class="sv-b">Partner receives certificate</text><text x="360.0" y="43.5" text-anchor="middle" class="sv-t">ID, link or QR code</text><polyline points="360,54 360,78" class="sv-line" marker-end="url(#ar)"/><rect x="250" y="78" width="220" height="40" rx="6" class="sv-box sv-white" /><text x="360.0" y="94.5" text-anchor="middle" class="sv-t">Open verification page,</text><text x="360.0" y="109.5" text-anchor="middle" class="sv-t">enter certificate ID</text><polyline points="360,118 360,150" class="sv-line" marker-end="url(#ar)"/><polygon points="360,150.0 430.0,190 360,230.0 290.0,190" class="sv-box sv-white"/><text x="360" y="194.0" text-anchor="middle" class="sv-b">ID found?</text><polyline points="290,190 200,190" class="sv-line" marker-end="url(#ar)"/><text x="245" y="182" text-anchor="middle" class="sv-s">No</text><rect x="20" y="168" width="180" height="44" rx="6" class="sv-box sv-white" /><text x="110.0" y="186.5" text-anchor="middle" class="sv-b">Generic not-found message</text><text x="110.0" y="201.5" text-anchor="middle" class="sv-t">no detail about why</text><polyline points="110,212 110,250" class="sv-line" marker-end="url(#ar)"/><rect x="20" y="250" width="180" height="56" rx="6" class="sv-box sv-white" /><text x="110.0" y="267.0" text-anchor="middle" class="sv-t">Ask candidate to resend</text><text x="110.0" y="282.0" text-anchor="middle" class="sv-t">or contact support</text><text x="110.0" y="297.0" text-anchor="middle" class="sv-s">END: not accepted yet</text><polyline points="360,230 360,262" class="sv-line" marker-end="url(#ar)"/><text x="376" y="250" text-anchor="start" class="sv-s">Yes</text><polygon points="360,262.0 435.0,305 360,348.0 285.0,305" class="sv-box sv-white"/><text x="360" y="309.0" text-anchor="middle" class="sv-b">Record state?</text><polyline points="285,305 240,305 240,362 200,362" class="sv-line" marker-end="url(#ar)"/><text x="262" y="297" text-anchor="middle" class="sv-s">Revoked</text><rect x="20" y="340" width="180" height="44" rx="6" class="sv-box sv-bad" /><text x="110.0" y="358.5" text-anchor="middle" class="sv-b">Reject</text><text x="110.0" y="373.5" text-anchor="middle" class="sv-t">certificate is revoked</text><polyline points="435,305 520,305" class="sv-line" marker-end="url(#ar)"/><text x="478" y="297" text-anchor="middle" class="sv-s">Under review</text><rect x="520" y="275" width="190" height="60" rx="6" class="sv-box sv-warn" /><text x="615.0" y="294.0" text-anchor="middle" class="sv-b">Hold</text><text x="615.0" y="309.0" text-anchor="middle" class="sv-t">wait for review outcome</text><text x="615.0" y="324.0" text-anchor="middle" class="sv-t">or ask for other proof</text><polyline points="360,348 360,380" class="sv-line" marker-end="url(#ar)"/><text x="376" y="368" text-anchor="start" class="sv-s">Active</text><rect x="250" y="380" width="220" height="44" rx="6" class="sv-box sv-white" /><text x="360.0" y="398.5" text-anchor="middle" class="sv-b">Read level and evidence</text><text x="360.0" y="413.5" text-anchor="middle" class="sv-t">L0, L1 or L2, evidence list</text><polyline points="360,424 360,446" class="sv-line" marker-end="url(#ar)"/><rect x="250" y="446" width="220" height="54" rx="6" class="sv-box sv-white" /><text x="360.0" y="462.0" text-anchor="middle" class="sv-b">Check the context</text><text x="360.0" y="477.0" text-anchor="middle" class="sv-t">flags, version status,</text><text x="360.0" y="492.0" text-anchor="middle" class="sv-t">Legacy label, learner source</text><polyline points="360,500 360,530" class="sv-line" marker-end="url(#ar)"/><polygon points="360,530.0 460.0,580 360,630.0 260.0,580" class="sv-box sv-white"/><text x="360" y="576.5" text-anchor="middle" class="sv-b">Meets our bar</text><text x="360" y="591.5" text-anchor="middle" class="sv-b">for this role?</text><polyline points="460,580 520,580" class="sv-line" marker-end="url(#ar)"/><text x="490" y="572" text-anchor="middle" class="sv-s">Yes</text><rect x="520" y="558" width="190" height="44" rx="6" class="sv-box sv-l2s" /><text x="615.0" y="576.5" text-anchor="middle" class="sv-b">Accept</text><text x="615.0" y="591.5" text-anchor="middle" class="sv-t">record in hiring file</text><polyline points="260,580 200,580" class="sv-line" marker-end="url(#ar)"/><text x="230" y="572" text-anchor="middle" class="sv-s">Not enough</text><rect x="20" y="550" width="180" height="60" rx="6" class="sv-box sv-white" /><text x="110.0" y="569.0" text-anchor="middle" class="sv-b">Accept with conditions</text><text x="110.0" y="584.0" text-anchor="middle" class="sv-t">or ask for extra proof</text><text x="110.0" y="599.0" text-anchor="middle" class="sv-t">(own skills test)</text><polyline points="360,630 360,652" class="sv-line" marker-end="url(#ar)"/><text x="376" y="645" text-anchor="start" class="sv-s">Looks wrong</text><rect x="200" y="652" width="320" height="60" rx="6" class="sv-box sv-warn" /><text x="360.0" y="671.0" text-anchor="middle" class="sv-b">Report a concern</text><text x="360.0" y="686.0" text-anchor="middle" class="sv-t">ops triage within 1 business day;</text><text x="360.0" y="701.0" text-anchor="middle" class="sv-t">if accepted: Under Review, partner notified</text></svg></div>
+    <p class="figcap">Every step from receiving a certificate to accepting, conditionally accepting, rejecting or reporting a concern. The partner decides what bar applies to their role; we only supply the evidence.</p>
+  </div>
+  <div class="subsection" id="unasked">
+    <h3 class="sub-title"><span class="sub-num">1.10</span>Unasked question</h3>
+    <p><strong>Once L1 matters, who keeps quizzes honest?</strong> The brief asks how to make certificates trustworthy, but it never asks what happens to quiz quality when the quiz becomes the thing that earns the trust badge and a payout kicker. Instructors control their own quizzes. An easier quiz means more L1 certificates, a higher assessed-learner number for Growth, and a larger kicker for the instructor. Every party benefits from weaker quizzes, and nobody is assigned to notice.</p>
+    <p><strong>Why it matters.</strong> L1 is only as strong as the quiz behind it. If quizzes drift easier, the level quietly loses meaning while the numbers improve. That is exactly the failure the original trust problem describes, moved one step downstream, and it would surface as the same partner complaint six months later.</p>
+    <p><strong>First action.</strong> Before launch, pull score and pass-rate distributions for every quiz course and set a baseline for "quiz looks too easy" (for example, pass rate above 95% with a median score above 90%). Use that baseline to decide whether the kicker applies to all quizzes or only audited ones, and add the share of L1 certificates from flagged quizzes to the metrics.</p>
+  </div>
+  <div class="part" id="part2">
+    <div class="section-header"><span class="section-num">PART 2</span><h2>MVP PRD</h2></div>
+    <p class="part-blurb">Written so engineering can start without a meeting. Features are numbered the same as the MVP table in section 1.6.</p>
+  </div>
+  <div class="subsection" id="prd-objective">
+    <h3 class="sub-title"><span class="sub-num">2.1</span>Objective, scope and roles</h3>
+    <p><strong>Objective.</strong> Give a partner a public certificate check page that shows, for any certificate ID, what evidence stands behind it, using only data the platform already holds plus a few new course and certificate fields. <strong>Non-goals:</strong> new assessments, proctoring, partner API, expiry.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Role</th><th>Who they are</th></tr></thead>
+        <tbody>
+          <tr><td>Partner</td><td>Employer or hiring-channel reviewer who receives a certificate and needs to decide how much to trust it</td></tr>
+          <tr><td>Learner</td><td>Self-directed or corporate-enrolled holder of a certificate</td></tr>
+          <tr><td>Content ops</td><td>Publishes and revises courses</td></tr>
+          <tr><td>Trust ops and trust ops lead</td><td>Triage and resolve concerns. Only the lead can revoke</td></tr>
+          <tr><td>Legal</td><td>Signs off the methodology and the privacy notice</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="subsection" id="prd-states">
+    <h3 class="sub-title"><span class="sub-num">2.2</span>Certificate states and transition rules</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>From &rarr; To</th><th>Trigger</th><th>Guard</th><th>Side effects</th></tr></thead>
+        <tbody>
+          <tr><td>none &rarr; Active</td><td>Course completion event</td><td>Course completion rules met</td><td>Write evidence snapshot, compute level, set standard V1, set issued version, log event</td></tr>
+          <tr><td>existing &rarr; Active</td><td>Backfill job</td><td>Certificate issued before cutover date</td><td>Same as above with standard Legacy</td></tr>
+          <tr><td>Active &rarr; Under Review</td><td>Ops accepts a concern at triage, or ops flags the certificate</td><td>No open review on this certificate; reason text required</td><td>Hide level and evidence on the public page, notify the learner with the reason and a 10 business day response window, log event</td></tr>
+          <tr><td>Under Review &rarr; Active</td><td>Ops clears</td><td>Reason text required</td><td>Recompute level, notify learner and reporter, close the concern, log event</td></tr>
+          <tr><td>Under Review &rarr; Revoked</td><td>Lead confirms fraud</td><td>Response window ended or learner responded; reason text required; trust ops lead role</td><td>Public page shows Revoked with reason, notify learner and reporter, log event</td></tr>
+          <tr><td>Revoked &rarr; any</td><td>Not allowed</td><td>Terminal state</td><td>A new certificate must be issued instead</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Concern records</strong> have their own status: open (triage) &rarr; rejected (certificate stays Active) or accepted (certificate goes Under Review) &rarr; cleared or revoked. While a concern is in triage the certificate stays Active and the page shows a "concern raised" banner, with the level still visible.</p>
+    <p>Not allowed: Active &rarr; Revoked directly, any transition without an audit event. <strong>Attributes, not states:</strong> level moves up on new evidence and moves down only through a review outcome; version status moves Current &rarr; Outdated when a revision is marked material; standard (Legacy, V1) never changes.</p>
+  </div>
+  <div class="subsection" id="prd-rules">
+    <h3 class="sub-title"><span class="sub-num">2.3</span>Level computation rules</h3>
+    <ol>
+      <li>Course has no assessment: L0.</li>
+      <li>Assessment history missing: L0, with the note "history unavailable".</li>
+      <li>Legacy certificate with a quiz pass but missing timing or attempt records: L0, with the note "records unavailable". New (V1) certificates always have these records, because they are captured at each attempt.</li>
+      <li>Quiz: L1 only if passed AND time spent is at least the quiz minimum AND attempts within any rolling 72 hours are at most 3. Otherwise L0 with flag "Assessment passed but did not meet integrity criteria".</li>
+      <li>Proctored or project exam: passed AND identity check on record gives L2. Passed without an identity record gives L1.</li>
+      <li>Enrollment source never changes the level. Flags never raise a level. No automatic downgrades in the MVP.</li>
+    </ol>
+    <p><span class="tag assume">Assumption</span> quiz minimum time is set per quiz at 25% of the median historical passing time. Check against attempt data in weeks 1 to 3; adjust the percentage, not the structure.</p>
+  </div>
+  <div class="subsection" id="prd-data">
+    <h3 class="sub-title"><span class="sub-num">2.4</span>Required data changes</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Object</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr><td>course</td><td>Add assessment_type (none, quiz, proctored, project), current_version (int), status (active, retired)</td></tr>
+          <tr><td>assessment</td><td>Add min_time_seconds (nullable until set)</td></tr>
+          <tr><td>course_version (new)</td><td>course_id, version, published_at, is_material (bool), revision_note, set_by. Rows are never hard-deleted</td></tr>
+          <tr><td>certificate</td><td>Add public_id (random, non-sequential, unique), state (active, under_review, revoked), level (0, 1, 2), standard (legacy, v1), issued_version, enrollment_source (self, corporate), org_id (nullable), level_computed_at, rules_version</td></tr>
+          <tr><td>certificate_evidence (new)</td><td>certificate_id, assessment_id, passed, score, attempts_72h, time_ok, id_check_present, records_complete (bool), flags (array), computed_at</td></tr>
+          <tr><td>certificate_event (new, append-only)</td><td>certificate_id, event_type, from_state, to_state, actor, reason, created_at</td></tr>
+          <tr><td>concern (new)</td><td>certificate_id, source (partner, learner, ops), reporter_email, email_confirmed, reason, status (open, rejected, accepted, cleared, revoked), triaged_by, opened_at, resolved_at, resolution_note</td></tr>
+          <tr><td>learner_notice (new)</td><td>certificate_id, kind (pre_launch, under_review, outcome), sent_at, response_due_at, response_text</td></tr>
+          <tr><td>check_feedback (new)</td><td>certificate_id, helpful (bool), created_at. No user identifier</td></tr>
+          <tr><td>config</td><td>attempt_limit = 3, attempt_window_hours = 72, min_time_percent = 25, cutover_date, response_window_business_days = 10, triage_target_business_days = 1</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="subsection" id="prd-migration">
+    <h3 class="sub-title"><span class="sub-num">2.5</span>Migration of existing certificates</h3>
+    <ol>
+      <li>Add new columns as nullable. Set every course to version 1 unless version history already exists. Set assessment_type from the course catalog.</li>
+      <li>Set issued_version to the course version live at the issue date, or 1 if unknown. Generate public_id for every certificate.</li>
+      <li>Backfill certificate_evidence from historical assessment attempts, identity-check records and exam results. Mark records_complete false where timing or attempt data is missing.</li>
+      <li>Compute level with the same rules. Set standard to legacy for every certificate issued before the cutover date and state to active.</li>
+      <li>Dry run on a copy, first in week 6 and again before the real run. Output a report: counts by level, by standard, certificates with missing or partial history, and 100 randomly sampled certificates for manual check by trust ops.</li>
+      <li>Send learner notices (item 6) to everyone whose Legacy certificate comes out at L0 on an assessed course or with a flag, at least 14 days before the page is visible to partners.</li>
+      <li>Run for real after Legal and the sample check pass. The job is idempotent and stores rules_version, so it can be re-run safely. Old certificate IDs keep working but need a second check (learner's last initial and issue year), because old IDs may be sequential.</li>
+    </ol>
+    <p><strong>Migration acceptance criteria:</strong> 100% of certificates have a level, standard and state. No certificate is given a level above its evidence. The only state transition performed is none &rarr; Active. The dry run report matches the real run within 0.1%. No certificate is revoked or removed by the migration. Every learner with a lowered or flagged result has a logged notice.</p>
+  </div>
+  <div class="subsection" id="prd-features">
+    <h3 class="sub-title"><span class="sub-num">2.6</span>Features: user stories and acceptance criteria</h3>
+<h4>Item 1. Evidence and level service</h4>
+    <div class="table-wrap"><table><thead><tr><th>User stories</th><th>Acceptance criteria</th></tr></thead><tbody><tr><td><ul><li>As a partner, I want the level to come from recorded evidence so that I can rely on it more than on a completion flag.</li><li>As trust ops, I want each level to be explainable from stored evidence so that I can answer a partner's question.</li></ul></td><td><ul><li>All six rules in 2.3 are implemented and unit tested against the 25 records in sample-data.csv, each returning its expected outcome.</li><li>Levels are precomputed and stored, not calculated at read time.</li><li>A new assessment attempt or identity-check event triggers a recompute within 5 minutes.</li><li>Recompute never lowers a level except through a review outcome.</li></ul></td></tr></tbody></table></div>
+<h4>Item 2. Course tagging and versioning</h4>
+    <div class="table-wrap"><table><thead><tr><th>User stories</th><th>Acceptance criteria</th></tr></thead><tbody><tr><td><ul><li>As content ops, I want to state whether a revision is material when I publish so that old certificates are marked correctly.</li><li>As a partner, I want to know if a course changed after the certificate was issued so that I can judge how current it is.</li></ul></td><td><ul><li>Every active course has assessment_type and version; publishing is blocked if either is missing.</li><li>The publish form has a required question "Is this revision material?" and a note field required when yes.</li><li>Marking material sets version status Outdated on certificates issued against earlier versions within 15 minutes, and never changes their level.</li><li>A version row cannot be deleted through the app or an admin tool.</li></ul></td></tr></tbody></table></div>
+<h4>Item 3. Legacy backfill</h4>
+    <div class="table-wrap"><table><thead><tr><th>User stories</th><th>Acceptance criteria</th></tr></thead><tbody><tr><td><ul><li>As the Partnerships lead, I want old certificates labelled honestly so that a partner never confuses them with new ones.</li><li>As a learner with an older certificate, I want it to stay valid so that my past work still counts.</li></ul></td><td><ul><li>The migration acceptance criteria in 2.5 all pass.</li><li>A dry run completes on production-size data in under 4 hours.</li><li>The sample of 100 certificates shows no level above the evidence.</li><li>No certificate holder loses a certificate; the only change is the displayed level and label.</li></ul></td></tr></tbody></table></div>
+<h4>Item 4. Public certificate check page</h4>
+    <div class="table-wrap"><table><thead><tr><th>User stories</th><th>Acceptance criteria</th></tr></thead><tbody><tr><td><ul><li>As a partner, I want to enter a certificate ID and see the level and the evidence so that I can decide whether to accept it.</li><li>As a partner, I want to see context (learner source, course version, Legacy label, flags) so that I read the level correctly.</li><li>As a learner, I want only my name and the evidence to be public so that my personal data is not exposed.</li></ul></td><td><ul><li>A valid ID returns the result in under 2 seconds at p95.</li><li>Shows level, evidence list, flags, learner source, version status, Legacy label, a methodology link and the one-click "Was this enough to make a decision?", matching the prototype.</li><li>Shows learner first name and last initial and the evidence only; no email or other personal data. Not indexed by search engines.</li><li>Old-format IDs also need the learner's last initial and issue year. An unknown ID returns the same generic message and timing as any other failure; lookups are limited to 30 per minute per IP.</li><li>Under Review and Revoked states hide level and evidence as specified. A certificate with a concern in triage shows a banner and keeps its level visible.</li><li>Works on mobile; level is conveyed by text as well as colour (WCAG AA contrast).</li></ul></td></tr></tbody></table></div>
+<h4>Item 5. Concern and review flow</h4>
+    <div class="table-wrap"><table><thead><tr><th>User stories</th><th>Acceptance criteria</th></tr></thead><tbody><tr><td><ul><li>As a partner, I want to report a certificate that looks wrong so that the platform checks it.</li><li>As trust ops, I want to triage concerns before anything is hidden so that false reports cannot hide a learner's level.</li><li>As the trust ops lead, I want revocation to need a reason and my approval so that revocation is defensible.</li></ul></td><td><ul><li>Submitting the form needs a reason and an email address; the concern counts only after the reporter confirms by email link. Limit: 3 concerns per email and 10 per IP per day.</li><li>The certificate stays Active during triage, and the page shows a "concern raised" banner.</li><li>Ops sees a queue with age and reason, and must accept or reject within 1 business day (<span class="tag assume">Assumption</span>). Rejecting closes the concern and removes the banner; accepting moves the certificate to Under Review.</li><li>Clear needs a reason. Revoke needs a reason, the lead role, and a closed or answered learner response window.</li><li>Every transition writes a certificate_event row. A certificate cannot have two open concerns; later reports attach to the open one.</li><li>The reporter is emailed the outcome.</li></ul></td></tr></tbody></table></div>
+<h4>Item 6. Learner notice and response</h4>
+    <div class="table-wrap"><table><thead><tr><th>User stories</th><th>Acceptance criteria</th></tr></thead><tbody><tr><td><ul><li>As a learner whose result is lowered or flagged, I want to be told before it is visible to employers so that I am not surprised.</li><li>As a learner under review, I want to see the reason and respond so that I can show the evidence is genuine.</li><li>As trust ops, I want the learner's response attached to the case so that the decision uses both sides.</li></ul></td><td><ul><li>At least 14 days before partners can see the page, every learner named in the migration criteria (2.5, step 6) is emailed their level, the reason, and a contest link.</li><li>A contest creates a concern of source "learner" in the same queue.</li><li>When a certificate enters Under Review, the learner is emailed the reason and a response form with a 10 business day window (<span class="tag assume">Assumption</span>).</li><li>Learner responses are stored on the concern and shown to the reviewer.</li><li>All notices are logged in learner_notice. The learner can open the public check page for their own certificate.</li></ul></td></tr></tbody></table></div>
+<h4>Item 7. Methodology page and privacy review</h4>
+    <div class="table-wrap"><table><thead><tr><th>User stories</th><th>Acceptance criteria</th></tr></thead><tbody><tr><td><ul><li>As Legal, I want every level to have written, checkable criteria so that the word "Verified" is defensible.</li><li>As a partner, I want to know what each level does and does not prove so that I do not over-read it.</li></ul></td><td><ul><li>States each level's criteria, what each level does not prove (for example, L1 does not verify identity), the Legacy approach, the concern process and the learner response right.</li><li>Signed off by Legal before the pilot, together with an updated privacy notice and terms that tell learners the certificate ID can be checked publicly. Versioned, with the version shown on the page.</li><li>The word "Verified" appears only in connection with L2.</li></ul></td></tr></tbody></table></div>
+<h4>Item 8. Learner upgrade flow (stretch, built last, cut first)</h4>
+    <div class="table-wrap"><table><thead><tr><th>User stories</th><th>Acceptance criteria</th></tr></thead><tbody><tr><td><ul><li>As a learner with an L0 or L1 certificate, I want to add a higher-level assessment so that my certificate can show stronger evidence.</li></ul></td><td><ul><li>Starts only if items 1 to 7 are accepted by the end of week 10.</li><li>A learner with an L0 or L1 certificate sees "Add an exam" when a higher-level assessment exists for the course.</li><li>Passing it adds an evidence row and raises the level on the same certificate ID. It can never lower it.</li></ul></td></tr></tbody></table></div>
+
+  </div>
+  <div class="subsection" id="prd-nfr">
+    <h3 class="sub-title"><span class="sub-num">2.7</span>Non-functional requirements and open questions</h3>
+    <ul>
+      <li>Access control: ops screens limited to the trust ops and lead roles. All changes are audited.</li>
+      <li>Privacy: the certificate ID acts as the key to a public page showing name, course and level. Legal reviews this under item 7. Check feedback stores no user identifier.</li>
+      <li>Security: rate limiting, no sequential IDs, no personal data in URLs, abuse monitoring on the concern form.</li>
+      <li>Open: are identity checks currently stored in a queryable form? (Blocks L2 correctness; check in weeks 1 to 3.)</li>
+      <li>Open: do historical quiz records include timestamps and attempt counts? (Decides how many Legacy certificates stay at L0.)</li>
+      <li>Open: can course versions be reconstructed from the CMS history, or is every course version 1? (Affects the Outdated notice for old revisions.)</li>
+      <li>Open: does the catalog already record assessment type for every course? If not, content ops must tag them.</li>
+      <li>Open: who owns the "material revision" decision in content ops? Needs a named role before launch.</li>
+      <li>Open: which email service sends learner and reporter notices, and does it support the volume of the pre-launch notice?</li>
+    </ul>
+  </div>
+  <div class="part" id="part3">
+    <div class="section-header"><span class="section-num">PART 3</span><h2>Working Prototype and Sample Data</h2></div>
+    <p class="part-blurb">A partner enters a certificate ID and sees the outcome with the evidence behind it.</p>
+  </div>
+  <div class="subsection" id="proto-files">
+    <h3 class="sub-title"><span class="sub-num">3.1</span>Files</h3>
+    <ul>
+      <li><a href="prototype.html"><strong>prototype.html</strong></a>: single file, opens by double-click, no server needed.</li>
+      <li><a href="sample-data.csv"><strong>sample-data.csv</strong></a>: the 25 sample records with raw evidence and the expected outcome for each.</li>
+    </ul>
+    <p>The page computes every level from the raw evidence using the rules in section 2.3. Levels are not hard-coded, so changing a record changes the result. The interface follows the Career 180 look and feel: Poppins, the brand blue and magenta, rounded white cards on a light grey page, filter pills, and the logo and dark footer. Older (Legacy) certificates ask for the learner's last initial and issue year first, as the PRD requires; the page shows the answer as a demo hint. Sample dates assume the standard went live on 1 Jul 2026. Report a concern simulates the flow: the form collects a reason and email, and the page then shows the triage banner while the level stays visible.</p>
+  </div>
+  <div class="subsection" id="proto-coverage">
+    <h3 class="sub-title"><span class="sub-num">3.2</span>Coverage of the brief's requirements</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Requirement</th><th>Covered by</th></tr></thead>
+        <tbody>
+          <tr><td>20 to 30 sample records</td><td>25 records, plus one not-found test ID</td></tr>
+          <tr><td>No assessment</td><td>Courses 1 and 6 (four records, one retired course)</td></tr>
+          <tr><td>Auto-graded quiz</td><td>Courses 2, 3, 7, 8 (clean pass, retake pass, too-fast pass, missing history, partial history)</td></tr>
+          <tr><td>Proctored or project-based exam</td><td>Courses 4 and 5 (with and without an identity record)</td></tr>
+          <tr><td>Corporate and self-directed</td><td>Both appear in every course group</td></tr>
+          <tr><td>Course revised after issue</td><td>Course 7 (material, v2 to v4) and course 8 (minor, v1 to v2)</td></tr>
+          <tr><td>Legacy, under review, revoked</td><td>Records for each state</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="subsection" id="proto-demo">
+    <h3 class="sub-title"><span class="sub-num">3.3</span>Walkthrough order</h3>
+    <ol>
+      <li>A no-assessment certificate reads L0 honestly.</li>
+      <li>A quiz pass reads L1.</li>
+      <li>A quick-pass corporate certificate drops to L0 with a flag.</li>
+      <li>A proctored certificate reads L2, and the same exam without an identity record is capped at L1.</li>
+      <li>The revised Leadership course shows the Outdated notice; the minor revision of Sales does not.</li>
+      <li>A Legacy certificate asks for the last initial and year, then carries its label; one with partial records stays at L0.</li>
+      <li>Report a concern puts a banner on the page; the Under Review sample shows the level hidden.</li>
+    </ol>
+  </div>
+  <div class="part" id="part4">
+    <div class="section-header"><span class="section-num">PART 4</span><h2>Validation &amp; Iteration Note</h2></div>
+    <p class="part-blurb">The design rests on stated assumptions, so discovery runs in the first three weeks of build and continues through the pilot. Cheapest, most decisive test first (data), then interviews, then live behaviour.</p>
+  </div>
+  <div class="subsection" id="val-assumptions">
+    <h3 class="sub-title"><span class="sub-num">4.1</span>Three riskiest assumptions and how to test them</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Assumption</th><th>Test</th><th>Who</th><th>Timing</th></tr></thead>
+        <tbody>
+          <tr><td><strong>A1.</strong> Partners want graded evidence levels, not a binary valid/not valid signal.</td><td>Show the prototype and ask them to check three certificates and decide accept or not. Watch what they read; ask what they would need to see to say yes, and whether they would pay a premium for assessed courses.</td><td>6 to 8 partner contacts: corporate L&amp;D or HR buyers, 2 from hiring channels. Include the partner who asked how completions are verified.</td><td>Weeks 1 to 3</td></tr>
+          <tr><td><strong>A2.</strong> Existing quiz data is clean enough to backfill, and quizzes are hard enough that L1 means something.</td><td>Analyse attempts, scores, time-to-pass and pass rates across all quiz courses. Check whether identity-check records are stored.</td><td>Data analyst or me with an engineer. Then 3 content ops people to explain anomalies.</td><td>Weeks 1 to 3</td></tr>
+          <tr><td><strong>A3.</strong> Showing levels will not hurt completion or push instructors to remove quizzes.</td><td>Interview instructors about the change and the kicker; then pilot with 1 to 2 partners and watch the completion guardrail and quiz additions.</td><td>5 to 6 instructors (mix of high and low earners), Content lead. Pilot partners.</td><td>Interviews week 2; pilot weeks 11 to 13, read over 6 weeks</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    
+  </div>
+  <div class="subsection" id="val-people">
+    <h3 class="sub-title"><span class="sub-num">4.2</span>Who we would talk to</h3>
+<p>The first group is covered by the table above. In addition:</p>
+    <ul>
+      <li><strong>Corporate account admins (3):</strong> how they enroll staff, and whether they would want to see level breakdowns for their own cohorts.</li>
+      <li><strong>Corporate learners (5):</strong> whether they feel the platform treats bulk-enrolled learners differently, and how they behave in quizzes.</li>
+      <li><strong>Growth and Marketing lead:</strong> whether "assessed learners (L1+)" works beside the headline in pitches, and who approves skills copy.</li>
+      <li><strong>Legal:</strong> whether the methodology wording supports using "verified" for L2 only.</li>
+      <li><strong>Finance:</strong> payout pool size, to turn the 3.4% kicker estimate into a real figure.</li>
+    </ul>
+
+    
+  </div>
+  <div class="subsection" id="val-changes">
+    <h3 class="sub-title"><span class="sub-num">4.3</span>What results would change the design</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>If we find</th><th>We change</th></tr></thead>
+        <tbody>
+          <tr><td>Fewer than half the partners read beyond a single accept/reject signal, or they ask only for "valid or not"</td><td>Collapse to two public labels (Assessed and Verified) and move the L0/L1 distinction into the evidence detail. Keep the three internal levels.</td></tr>
+          <tr><td>Median quiz attempts above 3, or more than 30% of quiz passes under the minimum time</td><td>L1 would label too many learners L0. Re-set the thresholds from the data, add a randomized question pool requirement, or rename L1 to avoid overclaiming.</td></tr>
+          <tr><td>Pass rate above 95% with a median score above 90% on most quiz courses</td><td>Quizzes do not discriminate. Keep L1 but state "quiz difficulty not audited" on the methodology page and add a quiz-quality audit to the roadmap.</td></tr>
+          <tr><td>Identity checks are not stored in a usable form</td><td>No certificate can be L2 at launch. Ship L0 and L1 only and make identity capture a prerequisite for L2.</td></tr>
+          <tr><td>Instructors say they would remove or weaken quizzes</td><td>Bring the payout kicker into the launch scope, or auto-grant L1 weight to existing quizzes so removal costs them.</td></tr>
+          <tr><td>Completion falls more than 3 points in the pilot</td><td>Pause rollout. Investigate whether the cause is the visible level or the page changing learner behaviour; reconsider whether levels should be hidden from learners.</td></tr>
+          <tr><td>More than 40% of historical quiz passes lack timing or attempt records</td><td>Most Legacy quiz certificates stay at L0. Tell partners plainly, consider a score-only Legacy level, and prioritise the learner notice and contest flow.</td></tr>
+          <tr><td>Partners say the Legacy label makes older certificates look worthless</td><td>Soften the wording and show the backfilled level first, with Legacy as a small note.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Decision rule: results are reviewed at the end of week 3. Any one row triggering is enough to revise the design before sprint planning; two or more means the PRD is reopened.</p>
+  </div>
+  <div class="subsection" id="bonus">
+    <h3 class="sub-title"><span class="sub-num">4.4</span>Senior bonus: the underperforming promotions</h3>
+    <p>A partner promoted people based on "trusted" certificates and several underperformed. Before changing anything, find out which of three things happened. They need different fixes and the evidence separating them is already in our data.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Hypothesis</th><th>How to tell</th><th>What I would change</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mismatch in expectations</strong></td><td>Get the list of promoted people and their certificate IDs. If most were L0 or L1 (or L1 from a quiz), the partner read "trusted" as "competent", but our page said only that a quiz was passed. Check the wording they were shown and what their promotion process assumed.</td><td>Stop using "trusted" anywhere. Rename what each level means in plain role language. Add a one-page partner guide on what each level does and does not prove, and agree with the partner which level their promotion decisions should require.</td></tr>
+          <tr><td><strong>Data problem</strong></td><td>Look at the evidence behind each certificate: Legacy backfilled levels, missing history, wrong course version (Outdated), retake patterns, cohort clustering among corporate learners, and whether the course content matched the role skill.</td><td>Fix the data pipeline and re-evaluate affected certificates. If the Legacy backfill overstated levels, downgrade those to what the evidence supports and tell the partner. Add the missing integrity rules (cohort detection).</td></tr>
+          <tr><td><strong>Flaw in the trust model</strong></td><td>If the underperformers hold clean L2 certificates, the model is wrong, not the data. Compare outcomes of L1 and L2 holders against promoted people without certificates, with the partner's own performance ratings. If levels do not predict performance, the model measures test-taking, not skill.</td><td>Redesign what L2 requires: skills-based criteria tied to the role, not just passing an exam. Add an outcome feedback loop with partners so levels are calibrated against real performance, and publish the validation results.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>First 48 hours with the partner:</strong> acknowledge the issue, ask for the certificate IDs and what "underperformed" means to them, and share the evidence we hold for each one. Do not defend the model before the data is read. A fair caveat to raise carefully: promotion outcomes depend on many things beyond a course certificate, so the question is whether certified people do better than comparable uncertified people, not whether every certified person performed.</p>
+  </div>
+  <div class="part" id="part5">
+    <div class="section-header"><span class="section-num">PART 5</span><h2>Process</h2></div>
+  </div>
+  <div class="subsection" id="ai-note">
+    <h3 class="sub-title"><span class="sub-num">5.1</span>AI usage note</h3>
+    <p><strong>Where AI helped.</strong> I used Claude as a drafting and building partner, and worked through each section in chat before it went into the document. It proposed options for the trust model, lifecycle and MVP cutline for me to choose from. It drafted the cost estimate, metrics, edge case register, PRD and discovery plan, and built the HTML document, the prototype and the three diagrams. It wrote a script that ran all 25 sample records through the prototype's level logic and compared them with the expected outcomes. It also reviewed its own draft and found contradictions I had not noticed, such as an integrity metric that could never be non-zero and a north star we could not measure. Finally, it measured each deliverable against its page limit by printing it. The decisions are mine; the numbers are placeholder assumptions that I reviewed and accepted.</p>
+    <p><strong>One suggestion I rejected.</strong> The AI proposed that the headline in pitches move from "certified learners" to "assessed learners (L1+)", which would have cut the headline by about 55%. I rejected it. "Certified" means the learner completed the course and is learning, which is true, and redefining it would punish Growth for something that is not wrong. Whether the learner gained the skill is a different claim. So the document keeps "certified learners" unchanged and adds "assessed learners" as a second number beside it.</p>
+  </div>
+
+  <div class="subsection" id="log">
+    <h3 class="sub-title"><span class="sub-num">5.2</span>Working log</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Date</th><th>Worked on</th><th>Cut and why</th></tr></thead>
+        <tbody>
+          <tr><td>29 Oct 2026</td><td>Read the brief and saved it. Framed the root problem. Decided the trust model (three levels), the Legacy position, the lifecycle, the MVP cutline, the cost estimate, the metrics and the three riskiest assumptions. Created the HTML case study.</td><td>Two-level model (the brief separates quiz from proctored exams). Revoking old certificates (breaks promises already made). Automatic diffing of course revisions (too big for one quarter, replaced by a manual flag).</td></tr>
+          <tr><td>31 Oct 2026</td><td>Edge case register, 25 sample records, prototype, three diagrams, PRD, discovery plan, unasked question, AI note and senior bonus. Then review rounds: kept "certified learners" as is, redefined the north star and integrity metrics, added the concern triage flow, learner notice and privacy review, restyled the prototype to the Career 180 look, added the summary and user stories, and a final consistency pass.</td><td>Cohort-level fraud detection, partner API, expiry, proctoring build and ML anomaly detection (out of scope for 3 people in 13 weeks). Randomized question pool as an L1 rule (not enforceable with data we hold). Automatic move to Under Review on integrity failure (false positives would hide learners). Second Under Review sample record (no new rule). Demo video (not required).</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
